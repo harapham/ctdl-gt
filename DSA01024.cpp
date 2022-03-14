@@ -1,39 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-int n,ok,k,a[35];
-string s[35];
-void sinh(){
+int n,k,ok;
+string s;
+int b[35];
+vector<string> a;
+void sx(){
     int i=k;
-    while(i>0&&a[i]==n-k+i) i--;
+    while(i>0&&b[i]==n-k+i) i--;
     if(i>0){
-        a[i]++;
-        for(int j=i+1;j<=k;j++) a[j]=a[i]-i+j;
-        for(int j=1;j<=k;j++) cout<<s[a[j]]<<" ";
-        cout<<endl;
+        b[i]++;
+        for(int j=i+1;j<=k;j++) b[j]=b[i]+j-i;
     }
-    else {ok=0;}
+    else ok=0;
 }
 main(){
-    int t;cin>>t;
-    while(t--){
-        cin>>n>>k;
-        for(int i=1;i<=n;i++) cin>>s[i];
-        sort(s+1,s+n+1);
-        for(int i=1;i<=n;i++) cout<<s[i];
-        for(int i=1;i<n;i++){
-            if(a[i]==a[i+1]){
-                for(int j=i+1;j<=n;j++) a[j]=a[j+1];
-            }
-            n--;
-        }
-        for(int i=1;i<=k;i++){
-            a[i]=i;
-        }
-        for(int j=1;j<=k;j++) cout<<s[a[j]]<<" ";
+    cin>>n>>k;
+    cin.ignore();
+    map<string,int> mp;
+    for(int i=0;i<n;i++){
+        cin>>s;
+        mp[s]++;
+    }
+    for(auto x:mp){
+        a.push_back(x.first);
+    }
+    ok=1;
+    n=a.size();
+    a.insert(a.begin(),1,".");
+    for(int i=1;i<=n;i++) b[i]=i;
+    while(ok){
+        for(int i=1;i<=k;i++) cout<<a[b[i]]<<" ";
         cout<<endl;
-        ok=1;
-        while(ok){
-            sinh();
-        }
+        sx();
     }
 }
