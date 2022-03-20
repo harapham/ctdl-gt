@@ -30,3 +30,21 @@ main(){
         cout<<maxx(a,0,n-1)<<endl;
     }
 }
+///cach 2:
+/* void qhd(int a[],int n){
+    int sum=a[0],last=a[0];
+    for(int i=0;i<n;i++){
+        sum=max(a[i]+sum,sum);
+        last=max(last,sum);
+    }
+    cout<<last<<endl;
+}
+main(){
+    int t,a[10000],n;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        for(int i=0;i<n;i++) cin>>a[i];
+        qhd(a,n);
+    }
+} */
