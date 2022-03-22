@@ -32,9 +32,9 @@ main(){
 }
 ///cach 2:
 /* void qhd(int a[],int n){
-    int sum=a[0],last=a[0];
+    int sum=0,last=0;
     for(int i=0;i<n;i++){
-        sum=max(a[i]+sum,sum);
+        sum=max(a[i]+sum,a[i]);
         last=max(last,sum);
     }
     cout<<last<<endl;
