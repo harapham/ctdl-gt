@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int n,s,a[50],kq=1000;
+int n,s,a[50],kq;
 void quaylui(int i,int sum,int x){//vi tri,sum,so to tien
     if(sum>s||x>kq) return;
     if(i==n){
@@ -11,9 +11,14 @@ void quaylui(int i,int sum,int x){//vi tri,sum,so to tien
     quaylui(i+1,sum+a[i],x+1);
 }
 main(){
-    cin>>n>>s;
-    for(int i=0;i<n;i++) cin>>a[i];
-    quaylui(0,0,0);
-    if(kq==1000) cout<<"-1";
-    else cout<<kq;
+    int t;cin>>t;
+    while(t--){
+        cin>>n>>s;
+        for(int i=0;i<n;i++) cin>>a[i];
+        kq=1000;
+        quaylui(0,0,0);
+        if(kq==1000) cout<<"-1";
+        else cout<<kq;
+        cout<<endl;
+    }
 }
