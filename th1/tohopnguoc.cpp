@@ -15,6 +15,7 @@ main(){
     int t;cin>>t;
     while(t--){
         cin>>n>>k;
+        a[0]=0;
         tohop(1);
     }
 }
